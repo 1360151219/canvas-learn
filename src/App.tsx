@@ -6,7 +6,8 @@ import Animation1 from './examples/animation1';
 import Animation2 from './examples/animation2';
 import Event1 from './examples/event1';
 import Filter from './examples/filter';
-import Sign from './examples/sign'
+import Sign from './examples/sign';
+import Guaguale from './examples/guaguale';
 export default function App() {
   return (
     <>
@@ -20,6 +21,7 @@ export default function App() {
         <Event1 />
         <Filter></Filter>
         <Sign></Sign>
+        <Guaguale />
       </div>
     </>
   );
