@@ -4,6 +4,8 @@ import Font from './examples/fontImage';
 import Transform from './examples/transform';
 import Animation1 from './examples/animation1';
 import Animation2 from './examples/animation2';
+import Event1 from './examples/event1';
+import Filter from './examples/filter';
 export default function App() {
   return (
     <>
@@ -14,6 +16,8 @@ export default function App() {
         <Transform />
         <Animation1 />
         <Animation2 />
+        <Event1 />
+        <Filter></Filter>
       </div>
     </>
   );
