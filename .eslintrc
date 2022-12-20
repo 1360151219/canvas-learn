@@ -1,5 +1,3 @@
 {
-  "extends": [
-    "eslint-config-psfe"
-  ]
+  "extends": ["eslint-config-psfe"]
 }

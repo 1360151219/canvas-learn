@@ -6,6 +6,7 @@ import Animation1 from './examples/animation1';
 import Animation2 from './examples/animation2';
 import Event1 from './examples/event1';
 import Filter from './examples/filter';
+import Sign from './examples/sign'
 export default function App() {
   return (
     <>
@@ -18,6 +19,7 @@ export default function App() {
         <Animation2 />
         <Event1 />
         <Filter></Filter>
+        <Sign></Sign>
       </div>
     </>
   );

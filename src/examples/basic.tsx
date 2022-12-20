@@ -39,7 +39,9 @@ export default function Index() {
   }, []);
   return (
     <div>
-      <h2 style={{ textAlign: 'center' }}>基础用法</h2>
+      <h2 style={{ textAlign: 'center' }} className="a">
+        基础用法
+      </h2>
       <canvas
         ref={canvasRef}
         id="canvas"

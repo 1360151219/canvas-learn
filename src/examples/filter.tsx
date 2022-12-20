@@ -1,8 +1,9 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, MouseEvent, useState } from 'react';
 const DEGREE = Math.PI / 180;
 export default function Index() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const img = useRef<HTMLImageElement>();
+  const [color, setColor] = useState('');
   useEffect(() => {
     // 通过判断getContext方法是否存在来判断浏览器的支持性
     const canvas = canvasRef.current;
@@ -53,15 +54,36 @@ export default function Index() {
     }
     ctx?.putImageData(imageData, 0, 0);
   };
-
+  const handleMove = (e: MouseEvent<HTMLCanvasElement>) => {
+    const { clientX, pageY } = e;
+    const ctx = canvasRef.current?.getContext('2d');
+    const imageData = ctx?.getImageData(
+      clientX - canvasRef.current?.offsetLeft,
+      pageY - canvasRef.current?.offsetTop,
+      1,
+      1
+    );
+    const data = imageData?.data;
+    const rgba = `rgba(${data[0]}, ${data[1]}, ${data[2]}, ${data[3] / 255})`;
+    setColor(rgba);
+  };
   return (
     <div>
-      <h2 style={{ textAlign: 'center' }}>滤镜</h2>
+      <h2
+        style={{
+          textAlign: 'center',
+          color: color ? '#fff' : '#000',
+          backgroundColor: color,
+        }}
+      >
+        滤镜+拾色器
+      </h2>
       <button onClick={restore}>还原</button>
       <button onClick={blackWhite}>黑白</button>
       <button onClick={opposition}>反相</button>
       <canvas
         ref={canvasRef}
+        onMouseMove={handleMove}
         id="canvas"
         width="450"
         height="750"
